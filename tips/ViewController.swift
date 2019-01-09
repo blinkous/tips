@@ -9,7 +9,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var tipTextLabel: UILabel!
+    @IBOutlet weak var totalTextLabel: UILabel!
+    
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
@@ -43,6 +45,28 @@ class ViewController: UIViewController {
         // Setting the labels
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        
+        // Updating dark or light mode
+        let darkMode = defaults.bool(forKey: "darkMode")
+        
+        if (darkMode) {
+            //Setting the colors for this view
+            self.view.backgroundColor = UIColor.black
+            tipTextLabel.textColor = UIColor.white
+            totalTextLabel.textColor = UIColor.white
+            tipLabel.textColor = UIColor.white
+            totalLabel.textColor = UIColor.white
+            billField.textColor = UIColor.white
+        }
+        else {
+            //Setting the colors for this view
+            self.view.backgroundColor = UIColor.white
+            tipTextLabel.textColor = UIColor.black
+            totalTextLabel.textColor = UIColor.black
+            tipLabel.textColor = UIColor.black
+            totalLabel.textColor = UIColor.black
+            billField.textColor = UIColor.black
+        }
     }
 
     // Making the keyboard disappear when you tap elsewhere on the screen

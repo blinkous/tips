@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="right" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="20" id="mgV-Mv-17s">
-                                <rect key="frame" x="22" y="84" width="308" height="98"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="$" textAlignment="right" adjustsFontSizeToFit="NO" minimumFontSize="20" id="mgV-Mv-17s">
+                                <rect key="frame" x="22" y="84" width="308" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="50"/>
@@ -40,17 +40,6 @@
                                     <action selector="calculateTip:" destination="BYZ-38-t0r" eventType="valueChanged" id="VgH-WB-AWf"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ce4-0N-5Vr">
-                                <rect key="frame" x="345" y="121" width="23" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
-                                <state key="normal" title="X">
-                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="clearField:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="LIp-5i-zf5"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gS3-Zr-Pxx">
                                 <rect key="frame" x="37" y="248" width="21" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -79,6 +68,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ce4-0N-5Vr">
+                                <rect key="frame" x="345" y="106" width="23" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="X">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearField:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="LIp-5i-zf5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -98,7 +98,9 @@
                         <outlet property="billField" destination="mgV-Mv-17s" id="qyt-Fl-2JM"/>
                         <outlet property="tipControl" destination="rEz-re-uBF" id="YH3-49-ale"/>
                         <outlet property="tipLabel" destination="eux-0V-18F" id="rX1-1a-Pyg"/>
+                        <outlet property="tipTextLabel" destination="gS3-Zr-Pxx" id="ImY-sC-Niu"/>
                         <outlet property="totalLabel" destination="T78-QC-RPZ" id="C10-co-hgh"/>
+                        <outlet property="totalTextLabel" destination="oBE-vj-a89" id="eHX-CB-7v9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -146,7 +148,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="tVk-0R-JtS">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="tVk-0R-JtS">
                                 <rect key="frame" x="22" y="269" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -163,7 +165,9 @@
                     <value key="contentSizeForViewInPopover" type="size" width="100" height="667"/>
                     <connections>
                         <outlet property="darkSwitch" destination="tVk-0R-JtS" id="l0g-er-Rwm"/>
+                        <outlet property="darkSwitchLabel" destination="oEh-xr-kZP" id="ZTu-Th-9GZ"/>
                         <outlet property="defaultControl" destination="nga-8F-v9s" id="Jhp-yM-s1f"/>
+                        <outlet property="defaultTipLabel" destination="dNP-l8-VYe" id="fbS-x8-XcK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciF-Vc-2lD" userLabel="First Responder" sceneMemberID="firstResponder"/>
