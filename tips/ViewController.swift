@@ -20,6 +20,9 @@ class ViewController: UIViewController {
         // Setting the focus automatically to the billField so that the keyboard
         // appears automatically
         self.billField.becomeFirstResponder()
+        let defaults = UserDefaults.standard
+        let tipValue = defaults.double(forKey: "defaultTip")
+        tipControl.selectedSegmentIndex = Int(tipValue)
     }
 
     // Making the keyboard disappear when you tap elsewhere on the screen
@@ -50,5 +53,8 @@ class ViewController: UIViewController {
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
     }
+    
+
+    
 }
 
