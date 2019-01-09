@@ -94,6 +94,7 @@ class ViewController: UIViewController {
         billField.text = ""
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
+        splitTotalLabel.text = "$0.00"
     }
     
 
