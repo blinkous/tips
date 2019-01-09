@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     
     @IBAction func clearField(_ sender: Any) {
         billField.text = ""
+        tipLabel.text = "$0.00"
+        totalLabel.text = "$0.00"
     }
     
     @IBAction func calculateTip(_ sender: Any) {
