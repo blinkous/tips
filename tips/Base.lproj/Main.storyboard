@@ -88,6 +88,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Tip Calculator" id="A9C-Yk-Jmv">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="bLV-7G-26E">
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="Hi1-n2-oLm" kind="push" id="pYY-CB-54I"/>
                             </connections>
@@ -128,25 +129,45 @@
                                 <color key="tintColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="changeDefault:" destination="Hi1-n2-oLm" eventType="valueChanged" id="BhQ-Mw-0J4"/>
+                                    <action selector="changeDefaultss:" destination="dao-Ww-D44" eventType="valueChanged" id="t37-Ok-Cde"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default Tip Percentage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dNP-l8-VYe">
-                                <rect key="frame" x="22" y="96" width="201" height="28"/>
+                                <rect key="frame" x="22" y="104" width="201" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oEh-xr-kZP">
+                                <rect key="frame" x="22" y="233" width="100" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="tVk-0R-JtS">
+                                <rect key="frame" x="22" y="269" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="onTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="darkMode:" destination="Hi1-n2-oLm" eventType="valueChanged" id="li4-FT-EfK"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="FmX-2d-5bj"/>
                     <value key="contentSizeForViewInPopover" type="size" width="100" height="667"/>
                     <connections>
+                        <outlet property="darkSwitch" destination="tVk-0R-JtS" id="l0g-er-Rwm"/>
                         <outlet property="defaultControl" destination="nga-8F-v9s" id="Jhp-yM-s1f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ciF-Vc-2lD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dao-Ww-D44" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1436" y="149"/>
         </scene>
@@ -169,4 +190,5 @@
             <point key="canvasLocation" x="-48.799999999999997" y="148.87556221889056"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

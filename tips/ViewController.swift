@@ -20,9 +20,29 @@ class ViewController: UIViewController {
         // Setting the focus automatically to the billField so that the keyboard
         // appears automatically
         self.billField.becomeFirstResponder()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Setting segmented control to defaults
         let defaults = UserDefaults.standard
         let tipValue = defaults.double(forKey: "defaultTip")
         tipControl.selectedSegmentIndex = Int(tipValue)
+        
+        // Updating the fields to match the tip percent
+        let tipPercentages = [0.18, 0.2, 0.25]
+        // Casting the billField text as a double and setting bill = to it
+        // If there is something other than a number in there, set bill to 0
+        let bill = Double(billField.text!) ?? 0
+        
+        // Finding the tip and totals using the segmented control to set the tip
+        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        let total = bill + tip
+        
+        // Setting the labels
+        tipLabel.text = String(format: "$%.2f", tip)
+        totalLabel.text = String(format: "$%.2f", total)
     }
 
     // Making the keyboard disappear when you tap elsewhere on the screen
@@ -53,8 +73,5 @@ class ViewController: UIViewController {
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
     }
-    
-
-    
 }
 
