@@ -11,11 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tipTextLabel: UILabel!
     @IBOutlet weak var totalTextLabel: UILabel!
+    @IBOutlet weak var splitTextLabel: UILabel!
     
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var billField: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
+    @IBOutlet weak var splitField: UITextField!
+    @IBOutlet weak var splitTotalLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +60,13 @@ class ViewController: UIViewController {
             tipLabel.textColor = UIColor.white
             totalLabel.textColor = UIColor.white
             billField.textColor = UIColor.white
+            splitField.textColor = UIColor.white
+            splitTotalLabel.textColor = UIColor.white
+            splitTextLabel.textColor = UIColor.white
+            billField.attributedPlaceholder = NSAttributedString(string: "$",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            splitField.attributedPlaceholder = NSAttributedString(string: "1",
+                                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         }
         else {
             //Setting the colors for this view
@@ -66,6 +76,11 @@ class ViewController: UIViewController {
             tipLabel.textColor = UIColor.black
             totalLabel.textColor = UIColor.black
             billField.textColor = UIColor.black
+            splitField.textColor = UIColor.black
+            splitTotalLabel.textColor = UIColor.black
+            splitTextLabel.textColor = UIColor.black
+            splitField.attributedPlaceholder = NSAttributedString(string: "1",
+                                                                 attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         }
     }
 
@@ -81,6 +96,23 @@ class ViewController: UIViewController {
         totalLabel.text = "$0.00"
     }
     
+
+    @IBAction func splitChange(_ sender: Any) {
+        let tipPercentages = [0.18, 0.2, 0.25]
+        
+        // Casting the billField text as a double and setting bill = to it
+        // If there is something other than a number in there, set bill to 0
+        let bill = Double(billField.text!) ?? 0
+        let split = Double(splitField.text!) ?? 1
+        
+        // Finding the tip and totals using the segmented control to set the tip
+        let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
+        let total = (bill + tip)/split
+        
+        // Setting the labels
+        splitTotalLabel.text = String(format: "$%.2f", total)
+    }
+    
     // Calculating the tip and total and displaying it
     @IBAction func calculateTip(_ sender: Any) {
         let tipPercentages = [0.18, 0.2, 0.25]
@@ -88,14 +120,17 @@ class ViewController: UIViewController {
         // Casting the billField text as a double and setting bill = to it
         // If there is something other than a number in there, set bill to 0
         let bill = Double(billField.text!) ?? 0
+        let split = Double(splitField.text!) ?? 1
         
         // Finding the tip and totals using the segmented control to set the tip
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
+        let splitTotal = (bill + tip)/split
         
         // Setting the labels
         tipLabel.text = String(format: "$%.2f", tip)
         totalLabel.text = String(format: "$%.2f", total)
+        splitTotalLabel.text = String(format: "$%.2f", splitTotal)
     }
 }
 
