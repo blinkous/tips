@@ -17,11 +17,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.billField.becomeFirstResponder()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    @IBAction func clearField(_ sender: Any) {
+        billField.text = ""
     }
     
     @IBAction func calculateTip(_ sender: Any) {
